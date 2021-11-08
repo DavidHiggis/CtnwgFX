@@ -1,0 +1,220 @@
+<html><head><base target="_blank"><style>
+.i200 {width: 200px;}
+.i400 {width: 400px;}
+object {border:30px #440 solid;}
+</style></head><body><textarea id="team" rows=20 cols=300 ondblclick=repurl(this)></textarea><br>
+<object data="repl.txt"></object> <object data="twtknu.csv"></object>  replv=<object data="repl_v.txt"></object>
+
+<script>
+var klyk=-1;
+var lynks=null;
+var keynv=true;
+var tblarea = document.getElementById('team');
+
+function kypreUP(e) {
+if(keynv)
+{
+klyk--;
+document.title=klyk;
+lynks[klyk].click();
+lynks[klyk].innerText='0';
+}
+}
+
+const vtwsig=	[0,				64/*@*/,				33/*!*/,			43/*+*/];
+const vtwimg=['https://pbs.twimg.com/ext_tw_video_thumb/',	'https://pbs.twimg.com/amplify_video_thumb/',	'https://pbs.twimg.com/tweet_video_thumb/','https://pbs.twimg.com/media/'];
+const vtwvid=['https://video.twimg.com/ext_tw_video/',		'https://video.twimg.com/amplify_video/',		'https://video.twimg.com/tweet_video/'];
+
+
+function vidstr(src)
+{
+	var c0=src.charCodeAt(0);
+	for(var i=1;i<3;i++){if(c0==vtwsig[i]){return vtwvid[i]+src.substring(1);}}
+	return vtwvid[0]+src;
+}
+
+function thumbstr(src)
+{
+	var c0=src.charCodeAt(0);
+	for(var i=1;i<4;i++){if(c0==vtwsig[i]){return vtwimg[i]+src.substring(1);}}
+	return vtwimg[0]+src;
+}
+
+
+const kx1='<a href="https://twitter.com/i/status/';
+const kx2='">====<br></a>';
+
+const mgx3='" />';
+
+var kv=function(e)
+{
+var ele=e.currentTarget;
+window.open(vidstr(ele.alt), null, null);
+}
+
+var twsyg=null;
+
+function dtw(){twsyg='https://twitter.com/i/status/';}
+function dps(){twsyg='https://tw.monstics.com/v';}
+function dhz(){twsyg='https://www.twi-videos.net/v.php?video=';}
+dhz();
+
+var kvpg=function(e)
+{
+var ele=e.currentTarget;
+ele.className='';
+window.open(twsyg+ele.alt, null, null);
+
+}
+
+const frmta='" /></form><scr'+'ipt src="kform.js"></scr'+'ipt></body></html>';
+
+var kvpg_fall=function(e)
+{
+var ele=e.currentTarget;
+ele.className='';
+
+var wnd=window.open("", null, null);
+wnd.document.write('<html><body><form method="post" action="https://tk2dl.com/t/playtw.html"><input type="hidden" name="x" value="'+ele.alt+
+frmta);
+
+}
+
+var hv=function(e)
+{
+var ele=e.currentTarget;
+var sig=ele.title;
+if(sig=='i')
+{
+if(ele.naturalWidth==0)
+{
+ele.src=ele.src.slice(0,-6);
+ele.dta='r';
+}
+
+ele.title='';
+ele.onmouseover=null;
+return;
+}
+
+
+if(ele.alt.charCodeAt(0)==59)
+{
+	//ele.className='';
+	ele.title='';
+	ele.onmouseover=null;
+	ele.src=thumbstr(sig);
+	ele.alt=ele.alt.substring(1);
+	ele.onclick=kvpg;
+}
+else{
+ele.title='i';
+ele.src=thumbstr(sig)+':thumb';
+ele.onclick=kv;
+}
+
+
+
+}
+
+function mkymg(str)
+{
+	var jk=str.split('\t');
+	if(jk.length>2)
+	{
+		return '<img class="i200" title="'+jk[0]+'" alt="'+jk[1]+mgx3;
+	}
+	return '----';
+
+}
+
+function repurl(yina)
+{
+	repurl_r(yina.value);
+}
+
+function repurlo()
+{
+	repurl_r(this.contentDocument.body.children[0].innerText);
+	this.onfocus=null;
+}
+
+function repurl_r(oyza)
+{
+var yza=oyza.split('\n');
+var yzal=yza.length;
+
+document.body.style.backgroundColor = '#101';
+document.onkeydown=kypreUP;
+
+var imgarr=new Array(yzal);
+if(yza[0].charCodeAt(0)==118)	//==v
+{
+//yzal--;
+	for(i=2;i<yzal;i+=2)
+	{
+		if(yza[i].length>15){
+			imgarr[yzal-i]='<img class="i400" title="'+yza[i+1]+'" alt=";'+yza[i]+mgx3;
+			yza[i]=kx1+yza[i]+kx2;
+			yza[i+1]='';
+		}
+		//else{yza[i]='++++++';}
+	}
+	
+	
+} else {
+	
+	yzal--;
+	for(i=0;i<yzal;i++)
+	{
+	if(yza[i].charCodeAt(0)==59){
+		var azo=yza[i].split(';');
+		yza[i]=kx1+azo[2]+kx2;
+		imgarr[yzal-i]='<img class="i400" title="'+azo[1]+'" alt=";'+azo[2]+mgx3;
+		}
+	else{
+
+		imgarr[yzal-i]=mkymg(yza[i]);
+		yza[i]=null;
+	}
+	}
+
+	
+	
+}
+
+tblarea.outerHTML=imgarr.join('x')+yza.join(' ');
+
+lynks=document.getElementsByTagName('img');
+klyk=lynks.length;
+
+for(var i=0;i<klyk;i++)
+{lynks[i].onmouseover=hv;}
+
+
+lynks=document.getElementsByTagName('a');
+
+klyk=lynks.length;
+document.scrollingElement.scrollTop=0;
+}
+var islarg=false;
+function largsvg(ele)
+{
+	if(islarg){return;}
+
+	ele.style.width=1500;
+	ele.style.height=3000;
+	document.scrollingElement.scrollTop=1000;
+	islarg=true;
+}
+
+function attachobj()
+{
+	var ob=document.getElementsByTagName("object");
+	for (var i=0; i<ob.length; i++) {ob[i].onfocus=repurlo;}
+
+}
+
+attachobj();
+
+</script></body></html>
