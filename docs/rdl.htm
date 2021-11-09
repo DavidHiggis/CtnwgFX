@@ -80,7 +80,8 @@ function exchange(src,dst,n)
 function shuf()
 	{
 		var k=1;
-		for(var i=duzl-1;i>0;i--)
+		var endo=duzl>>1;
+		for(var i=duzl-1;i>endo;i--)
 		{
 			exchange(i,(i*Math.random())>>0,k&0x3f);
 			k++;
