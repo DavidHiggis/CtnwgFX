@@ -1,5 +1,4 @@
 
-var duuz=[];
 
 curshow=0;
 
@@ -205,7 +204,7 @@ var kontimg=function(e) {
 	
 }
 
-setup_simi();
+setup();
 document.onkeydown=kycmd;
 document.onclick=kontimg;
 
