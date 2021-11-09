@@ -67,6 +67,26 @@ function setup()
 	doshow();
 }
 	
+function exchange(src,dst,n)
+	{
+		for(var i=0;i<n;i++)
+		{
+			var tmp=duuz[dst+n];
+			duuz[dst+n]=duuz[src+n];
+			duuz[src+n]=tmp;
+		}
+	}
+	
+function shuf()
+	{
+		var k=1;
+		for(var i=duzl-1;i>0;i--)
+		{
+			exchange(i,(i*Math.random())>>0,k&0x3f);
+			k++;
+		}
+	}
+	
 function segsep(tg,lit)
 	{
 		var viu=document.getElementsByTagName(tg);
