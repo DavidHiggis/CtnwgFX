@@ -71,9 +71,9 @@ function exchange(src,dst,n)
 	{
 		for(var i=0;i<n;i++)
 		{
-			var tmp=duuz[dst+n];
-			duuz[dst+n]=duuz[src+n];
-			duuz[src+n]=tmp;
+			var tmp=duuz[dst+i];
+			duuz[dst+i]=duuz[src+i];
+			duuz[src+i]=tmp;
 		}
 	}
 	
