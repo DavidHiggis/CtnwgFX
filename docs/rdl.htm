@@ -77,7 +77,7 @@ function exchange(src,dst,n)
 		}
 	}
 	
-function shuf()
+function shuf_z()
 	{
 		var k=1;
 		var endo=duzl>>1;
@@ -86,8 +86,15 @@ function shuf()
 			exchange(i,(i*Math.random())>>0,k&0x3f);
 			k++;
 		}
-		setup();
+		
 	}
+
+function shuf()
+{
+	shuf_z();
+	shuf_z();
+	setup();
+}
 	
 function segsep(tg,lit)
 	{
