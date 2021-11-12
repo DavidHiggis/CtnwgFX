@@ -72,11 +72,12 @@ var curshow=5;
 
 function mkblkz()
 {
+	var xi=dbdy.children[0];
 	for(var i=0;i<cutn;i++)
 	{
 		
 		var blo= document.createElement('p');
-		//blo.style.verticalalign= 'middle';
+		
 		var lnk= document.createElement('img');
 		lnk.src=sigshort+'/'+i+'.mp4.jpg'
 		lnk.style.display ='inline';
@@ -89,6 +90,7 @@ function mkblkz()
 		dbdy.appendChild(blo);
 		
 	}
+	dbdy.appendChild(xi.cloneNode(true));
 	for(var i=0;i<5;i++)
 	{
 		var vio=vidarr[i][0];
